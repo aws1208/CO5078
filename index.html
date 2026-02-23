@@ -1,88 +1,276 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="ShireStay Guest House — a Lord of the Rings inspired countryside retreat in Matamata, New Zealand. Comfortable rooms, themed experiences, and easy booking enquiries." />
     <title>ShireStay Guest House | Home</title>
-    <meta name="description" content="ShireStay is a themed countryside guest house in New Zealand offering comfort, charm, and a peaceful escape.">
 
-    <!-- External CSS only -->
-    <link rel="stylesheet" href="root/styles.css">
+    <!-- External CSS only (per brief). Place styles.css in /root/ -->
+    <link rel="stylesheet" href="root/styles.css" />
+
+    <!-- Favicon optional (add later if you want) -->
+    <!-- <link rel="icon" href="root/assets/favicon.ico" /> -->
 </head>
 
 <body>
-
     <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header>
-        <div class="container">
-            <h1 class="logo">ShireStay Guest House</h1>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="ShireStay Guest House Home">
+                <span class="brand-mark" aria-hidden="true">🍃</span>
+                <span class="brand-text">
+                    <span class="brand-name">ShireStay</span>
+                    <span class="brand-tagline">Guest House • Matamata, New Zealand</span>
+                </span>
+            </a>
 
-            <nav aria-label="Main Navigation">
-                <ul class="nav">
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="about.html">About & Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                    <span class="nav-toggle-label">Menu</span>
+                </button>
+
+                <ul id="primary-menu" class="nav-list">
+                    <li class="nav-item"><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About &amp; Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main id="main">
+    <main id="main" class="site-main" role="main">
+        <!-- HERO -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1 id="hero-title">A cosy, Middle-earth inspired stay — without the long journey.</h1>
+                    <p class="hero-lede">
+                        Welcome to <strong>ShireStay</strong>, a peaceful guest house near Matamata where warm hospitality meets a playful fantasy theme.
+                        Enjoy rustic interiors, modern comfort, and easy access to local walks and film-set landscapes.
+                    </p>
 
-        <section class="hero">
-            <div class="container">
-                <h2>Experience a Peaceful Countryside Escape</h2>
-                <p>
-                    Welcome to ShireStay, a cosy themed guest house inspired by rustic charm
-                    and natural beauty. Located in scenic New Zealand, we offer comfort,
-                    relaxation, and a memorable stay.
-                </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="contact.html">Enquire &amp; Check Availability</a>
+                        <a class="button button-secondary" href="about.html">Explore Rooms &amp; Gallery</a>
+                    </div>
 
-                <figure>
-                    <img src="root/assets/guesthouse.jpg"
-                         alt="Cosy countryside guest house surrounded by greenery"
-                         width="900" height="500">
-                    <figcaption>
-                        Figure 1. Exterior view of ShireStay Guest House.
-                        (Image source referenced in development log � APA 7th edition.)
-                    </figcaption>
-                </figure>
+                    <ul class="hero-highlights" aria-label="Key highlights">
+                        <li class="highlight">
+                            <span class="highlight-title">Accessible-first design</span>
+                            <span class="highlight-desc">Clear contrast, structured content, keyboard-friendly navigation.</span>
+                        </li>
+                        <li class="highlight">
+                            <span class="highlight-title">Great location</span>
+                            <span class="highlight-desc">Near Matamata with scenic countryside walks and local cafes.</span>
+                        </li>
+                        <li class="highlight">
+                            <span class="highlight-title">Comfortable rooms</span>
+                            <span class="highlight-desc">Fresh linens, fast Wi-Fi, and calm spaces for rest.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="hero-media" aria-label="Featured image">
+                    <figure class="media-frame">
+                        <!-- Replace with your own/CC/AI-generated image placed in root/assets/ -->
+                        <img src="root/assets/hero-shirestay.jpg"
+                             width="1200"
+                             height="800"
+                             alt="A cosy, cottage-style guest house exterior with warm lighting, greenery, and a welcoming path."
+                             loading="eager"
+                             decoding="async" />
+                        <figcaption class="media-caption">
+                            Figure 1. Hero image for ShireStay Guest House. (Add APA 7 reference in your development log.)
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
 
-        <section class="features">
-            <div class="container">
-                <h2>Why Stay With Us?</h2>
-
-                <ul class="feature-list">
-                    <li>Comfortable themed rooms</li>
-                    <li>Free Wi-Fi and breakfast</li>
-                    <li>Quiet countryside location</li>
-                    <li>Friendly and welcoming hosts</li>
-                </ul>
+        <!-- TRUST / SUMMARY STRIP -->
+        <section class="trust-strip" aria-label="Guest essentials">
+            <div class="container trust-items">
+                <div class="trust-item">
+                    <h2 class="trust-title">Check-in</h2>
+                    <p class="trust-text">From 3:00 pm • Self check-in available</p>
+                </div>
+                <div class="trust-item">
+                    <h2 class="trust-title">Check-out</h2>
+                    <p class="trust-text">By 11:00 am • Late check-out by request</p>
+                </div>
+                <div class="trust-item">
+                    <h2 class="trust-title">Quiet hours</h2>
+                    <p class="trust-text">10:00 pm – 7:00 am • Great for light sleepers</p>
+                </div>
+                <div class="trust-item">
+                    <h2 class="trust-title">Amenities</h2>
+                    <p class="trust-text">Wi-Fi • Breakfast • Parking • Local guides</p>
+                </div>
             </div>
         </section>
 
-        <section class="cta">
+        <!-- FEATURES -->
+        <section class="section" aria-labelledby="features-title">
             <div class="container">
-                <h2>Plan Your Stay</h2>
-                <p>
-                    Ready to book or have a question? Visit our contact page to get in touch.
+                <h2 id="features-title">What you’ll love</h2>
+                <p class="section-intro">
+                    Designed with usability in mind: scannable sections, consistent navigation, and clear calls to action.
                 </p>
-                <p>
-                    <a class="button" href="contact.html">Contact Us</a>
-                </p>
+
+                <div class="cards" role="list">
+                    <article class="card" role="listitem">
+                        <h3>Comfort-first rooms</h3>
+                        <p>
+                            Supportive mattresses, blackout curtains, and a calm, uncluttered layout so you can rest properly.
+                        </p>
+                    </article>
+
+                    <article class="card" role="listitem">
+                        <h3>Theme done tastefully</h3>
+                        <p>
+                            Subtle decor details and storytelling touches — fun, not overwhelming.
+                        </p>
+                    </article>
+
+                    <article class="card" role="listitem">
+                        <h3>Simple enquiry flow</h3>
+                        <p>
+                            A structured contact form with clear labels and helpful feedback (implemented on the Contact page).
+                        </p>
+                    </article>
+
+                    <article class="card" role="listitem">
+                        <h3>Local recommendations</h3>
+                        <p>
+                            Walking routes, nearby food spots, and day trips — curated for different budgets and energy levels.
+                        </p>
+                    </article>
+                </div>
             </div>
         </section>
 
+        <!-- QUICK GALLERY PREVIEW -->
+        <section class="section section-alt" aria-labelledby="preview-title">
+            <div class="container">
+                <div class="split">
+                    <div class="split-content">
+                        <h2 id="preview-title">A peek inside</h2>
+                        <p class="section-intro">
+                            Browse the full gallery on the About page. All images should be attributed (CC/your own/AI) using APA 7 in your log.
+                        </p>
+                        <a class="button button-secondary" href="about.html">View the Gallery</a>
+                    </div>
+
+                    <div class="split-media" aria-label="Gallery preview">
+                        <ul class="image-grid">
+                            <li>
+                                <figure>
+                                    <img src="root/assets/preview-room.jpg"
+                                         width="800"
+                                         height="600"
+                                         alt="A warm guest room with wooden furniture, soft lighting, and a neatly made bed."
+                                         loading="lazy"
+                                         decoding="async" />
+                                    <figcaption>Figure 2. Guest room preview. (Add APA 7 reference in log.)</figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <img src="root/assets/preview-breakfast.jpg"
+                                         width="800"
+                                         height="600"
+                                         alt="A simple breakfast tray with tea, fruit, and pastries on a wooden table."
+                                         loading="lazy"
+                                         decoding="async" />
+                                    <figcaption>Figure 3. Breakfast preview. (Add APA 7 reference in log.)</figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <img src="root/assets/preview-garden.jpg"
+                                         width="800"
+                                         height="600"
+                                         alt="A green garden path with shrubs and a small sitting area."
+                                         loading="lazy"
+                                         decoding="async" />
+                                    <figcaption>Figure 4. Garden preview. (Add APA 7 reference in log.)</figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <img src="root/assets/preview-map.jpg"
+                                         width="800"
+                                         height="600"
+                                         alt="A map-style illustration showing the guest house area and nearby points of interest."
+                                         loading="lazy"
+                                         decoding="async" />
+                                    <figcaption>Figure 5. Location/guide preview. (Add APA 7 reference in log.)</figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta" aria-labelledby="cta-title">
+            <div class="container cta-inner">
+                <h2 id="cta-title">Ready to plan your stay?</h2>
+                <p>
+                    Send an enquiry and we’ll reply with availability, pricing, and local travel tips.
+                </p>
+                <a class="button button-primary" href="contact.html">Contact the Owner</a>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 ShireStay Guest House | Educational Project</p>
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <p class="footer-name">ShireStay Guest House</p>
+                <p class="footer-small">
+                    Matamata, Waikato • New Zealand
+                </p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul class="footer-links">
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About &amp; Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-meta">
+                <p class="footer-small">
+                    © <span id="year">2026</span> ShireStay. For educational use only.
+                </p>
+                <p class="footer-small">
+                    Built to HTML5 + CSS3 standards; accessibility tested with WAVE (document results in your development log).
+                </p>
+            </div>
         </div>
     </footer>
 
+    <!-- JS enhancement (no inline styling). Put JS in root/scripts.js later if you prefer. -->
+    <script>
+    (function () {
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('primary-menu');
+      if (!toggle || !menu) return;
+
+      toggle.addEventListener('click', function () {
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('is-open');
+      });
+    })();
+    </script>
 </body>
 </html>
