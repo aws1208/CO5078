@@ -1,341 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Game of Awais – Manchester Edition</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Georgia", serif;
-        }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShireStay Guest House | Home</title>
+    <meta name="description" content="ShireStay is a themed countryside guest house in New Zealand offering comfort, charm, and a peaceful escape.">
 
-        body {
-            background: radial-gradient(circle at top, #1b2735 0, #090a0f 55%);
-            color: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.7);
-            border-bottom: 2px solid #444;
-            padding: 1.5rem 8vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-            header h1 {
-                font-size: 1.8rem;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-            }
-
-            header span {
-                font-size: 0.9rem;
-                color: #c0c0c0;
-            }
-
-        nav a {
-            margin-left: 1.5rem;
-            text-decoration: none;
-            color: #f5f5f5;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-            nav a:hover {
-                color: #e0b341;
-            }
-
-        main {
-            flex: 1;
-            padding: 3rem 8vw 4rem;
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-            gap: 3rem;
-        }
-
-        @media (max-width: 900px) {
-            main {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .hero {
-            position: relative;
-            padding: 2.5rem 2rem;
-            border-radius: 10px;
-            background: linear-gradient( 135deg, rgba(0, 0, 0, 0.85), rgba(40, 40, 40, 0.9) ), url("https://images.pexels.com/photos/356830/pexels-photo-356830.jpeg") center/cover no-repeat;
-            overflow: hidden;
-        }
-
-            .hero::before {
-                content: "The North of England Remembers";
-                position: absolute;
-                top: 1.2rem;
-                right: 1.5rem;
-                font-size: 0.8rem;
-                letter-spacing: 0.18em;
-                text-transform: uppercase;
-                color: rgba(255, 255, 255, 0.4);
-            }
-
-            .hero h2 {
-                font-size: 2.2rem;
-                margin-bottom: 0.8rem;
-                text-transform: uppercase;
-                letter-spacing: 0.16em;
-            }
-
-            .hero h3 {
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-                color: #e0b341;
-                text-transform: uppercase;
-                letter-spacing: 0.18em;
-            }
-
-            .hero p {
-                line-height: 1.6;
-                max-width: 40rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero .cta {
-                margin-top: 1rem;
-                display: flex;
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
-
-        .btn {
-            padding: 0.7rem 1.4rem;
-            border-radius: 999px;
-            border: 1px solid #e0b341;
-            background: transparent;
-            color: #e0b341;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-            .btn.primary {
-                background: #e0b341;
-                color: #111;
-            }
-
-            .btn:hover {
-                transform: translateY(-1px);
-                box-shadow: 0 0 12px rgba(224, 179, 65, 0.4);
-            }
-
-        .side-panel {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            padding: 1.8rem 1.6rem 2rem;
-            border: 1px solid #333;
-        }
-
-            .side-panel h4 {
-                font-size: 1.1rem;
-                text-transform: uppercase;
-                letter-spacing: 0.16em;
-                margin-bottom: 1.2rem;
-                border-bottom: 1px solid #333;
-                padding-bottom: 0.6rem;
-            }
-
-        .house-list {
-            list-style: none;
-        }
-
-            .house-list li {
-                margin-bottom: 1rem;
-                padding-bottom: 0.8rem;
-                border-bottom: 1px dashed #333;
-            }
-
-        .house-name {
-            font-weight: bold;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .house-words {
-            font-size: 0.9rem;
-            color: #e0b341;
-            margin: 0.2rem 0 0.4rem;
-        }
-
-        .house-desc {
-            font-size: 0.9rem;
-            color: #d0d0d0;
-        }
-
-        .timeline {
-            margin-top: 2rem;
-        }
-
-            .timeline h4 {
-                font-size: 1rem;
-                text-transform: uppercase;
-                letter-spacing: 0.16em;
-                margin-bottom: 0.8rem;
-            }
-
-        .event {
-            margin-bottom: 0.9rem;
-            padding-left: 0.6rem;
-            border-left: 2px solid #555;
-        }
-
-            .event span {
-                font-size: 0.8rem;
-                color: #c0c0c0;
-                text-transform: uppercase;
-                letter-spacing: 0.12em;
-            }
-
-            .event p {
-                font-size: 0.9rem;
-                margin-top: 0.2rem;
-            }
-
-        footer {
-            padding: 1rem 8vw 1.4rem;
-            font-size: 0.8rem;
-            color: #b0b0b0;
-            border-top: 1px solid #222;
-            background: rgba(0, 0, 0, 0.85);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-            footer a {
-                color: #e0b341;
-                text-decoration: none;
-            }
-    </style>
+    <!-- External CSS only -->
+    <link rel="stylesheet" href="root/styles.css">
 </head>
+
 <body>
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
     <header>
-        <div>
-            <h1>Game of Thrones: Manchester</h1>
-            <span>Where the Iron Throne meets the Industrial North</span>
+        <div class="container">
+            <h1 class="logo">ShireStay Guest House</h1>
+
+            <nav aria-label="Main Navigation">
+                <ul class="nav">
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About & Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <a href="#houses">Houses</a>
-            <a href="#events">Events</a>
-            <a href="#about">About</a>
-        </nav>
     </header>
 
-    <main>
-        <section class="hero" id="about">
-            <h2>Winter Comes to Manchester</h2>
-            <h3>Deansgate, the new King’s Landing</h3>
-            <p>
-                Imagine the Seven Kingdoms stretched across the streets of Manchester:
-                the Northern Quarter as a haven for free folk, Castlefield as the
-                rebuilt Winterfell, and Old Trafford looming like a modern Dragonpit.
-                Rival houses vie for control of the Metrolink, the canals, and the
-                beating heart of the city.
-            </p>
-            <p>
-                This fan-made setting reimagines iconic Game of Thrones locations in
-                familiar Mancunian landmarks—rain-soaked cobbles, red-brick strongholds,
-                and skies that always feel a little bit like winter.
-            </p>
-            <div class="cta">
-                <button class="btn primary">Explore the Houses</button>
-                <button class="btn">View the Timeline</button>
+    <main id="main">
+
+        <section class="hero">
+            <div class="container">
+                <h2>Experience a Peaceful Countryside Escape</h2>
+                <p>
+                    Welcome to ShireStay, a cosy themed guest house inspired by rustic charm
+                    and natural beauty. Located in scenic New Zealand, we offer comfort,
+                    relaxation, and a memorable stay.
+                </p>
+
+                <figure>
+                    <img src="root/assets/guesthouse.jpg"
+                         alt="Cosy countryside guest house surrounded by greenery"
+                         width="900" height="500">
+                    <figcaption>
+                        Figure 1. Exterior view of ShireStay Guest House.
+                        (Image source referenced in development log – APA 7th edition.)
+                    </figcaption>
+                </figure>
             </div>
         </section>
 
-        <aside class="side-panel" id="houses">
-            <h4>Great Houses of Manchester</h4>
-            <ul class="house-list">
-                <li>
-                    <div class="house-name">House Stark of Castlefield</div>
-                    <div class="house-words">“The Rain Is Coming.”</div>
-                    <div class="house-desc">
-                        Guardians of the canals and old mills, House Stark keeps watch over
-                        the city’s historic heart, loyal and stubborn as the stone arches
-                        that frame their domain.
-                    </div>
-                </li>
-                <li>
-                    <div class="house-name">House Lannister of Spinningfields</div>
-                    <div class="house-words">“Debts Paid in Gold and Glass.”</div>
-                    <div class="house-desc">
-                        Dwelling in the gleaming towers of finance, they rule over coin,
-                        contracts, and quiet threats whispered in rooftop bars.
-                    </div>
-                </li>
-                <li>
-                    <div class="house-name">House Targaryen of Old Trafford</div>
-                    <div class="house-words">“Fire, Blood, and Added Time.”</div>
-                    <div class="house-desc">
-                        Their banners fly red over roaring crowds. Legends speak of three
-                        “dragons” once dominating the pitch, now waiting to rise again.
-                    </div>
-                </li>
-                <li>
-                    <div class="house-name">House Greyjoy of Salford Quays</div>
-                    <div class="house-words">“We Do Not Commute.”</div>
-                    <div class="house-desc">
-                        Masters of the waterways and MediaCity, they sail trams and ferries
-                        alike, claiming every dock and pier as their own.
-                    </div>
-                </li>
-            </ul>
+        <section class="features">
+            <div class="container">
+                <h2>Why Stay With Us?</h2>
 
-            <div class="timeline" id="events">
-                <h4>Whispers from the Northern Quarter</h4>
-                <div class="event">
-                    <span>Year 1 – The Gathering Storm</span>
-                    <p>
-                        Rumours spread of a mysterious chill rolling in from the Pennines,
-                        as street artists paint white walkers on shuttered doors.
-                    </p>
-                </div>
-                <div class="event">
-                    <span>Year 2 – Battle of Piccadilly</span>
-                    <p>
-                        Rival banners clash over control of the station—whoever commands the
-                        trains commands the realm.
-                    </p>
-                </div>
-                <div class="event">
-                    <span>Year 3 – The Metrolink Accord</span>
-                    <p>
-                        A fragile peace is signed on a tram between Altrincham and Bury,
-                        though no one expects it to last the full journey.
-                    </p>
-                </div>
+                <ul class="feature-list">
+                    <li>Comfortable themed rooms</li>
+                    <li>Free Wi-Fi and breakfast</li>
+                    <li>Quiet countryside location</li>
+                    <li>Friendly and welcoming hosts</li>
+                </ul>
             </div>
-        </aside>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Plan Your Stay</h2>
+                <p>
+                    Ready to book or have a question? Visit our contact page to get in touch.
+                </p>
+                <p>
+                    <a class="button" href="contact.html">Contact Us</a>
+                </p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <div>
-            A fan-made concept blending <em>Game of Thrones</em> with Manchester.
-            Not affiliated with HBO or George R. R. Martin.
-        </div>
-        <div>
-            Built for the North of England—because, in Manchester, winter never really
-            leaves.
+        <div class="container">
+            <p>&copy; 2026 ShireStay Guest House | Educational Project</p>
         </div>
     </footer>
+
 </body>
 </html>
