@@ -12,7 +12,6 @@
             background: #f4f4f4;
         }
 
-        /* Header */
         header {
             background: #222;
             color: white;
@@ -40,22 +39,26 @@
             }
 
         main {
-            max-width: 900px;
+            max-width: 1100px; /* Increased width */
             margin: 20px auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         section {
             background: white;
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
             border-radius: 8px;
         }
 
-        img {
+        /* Larger photo styling */
+        .photo {
             width: 100%;
-            border-radius: 8px;
-            margin-top: 10px;
+            height: 500px; /* Bigger height */
+            object-fit: cover; /* Keeps image nicely cropped */
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            margin-top: 15px;
         }
 
         footer {
@@ -70,7 +73,6 @@
 
     <header>
         <h1>Edinburgh Guesthouse</h1>
-
         <div class="nav-buttons">
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -83,14 +85,17 @@
             <h2>About</h2>
             <p>
                 Welcome to our Edinburgh Guesthouse! A cosy and comfortable place to stay near the city centre.
-                Perfect for couples, friends, and small families visiting Edinburgh.
             </p>
         </section>
 
         <section>
             <h2>Photos</h2>
-            <img src="https://via.placeholder.com/900x400?text=Living+Room" alt="Living Room">
-            <img src="https://via.placeholder.com/900x400?text=Bedroom" alt="Bedroom">
+
+            <!-- Replace these with your own image file names -->
+            <img src="photo1.jpg" alt="Living Room" class="photo">
+            <img src="photo2.jpg" alt="Bedroom" class="photo">
+            <img src="photo3.jpg" alt="Kitchen" class="photo">
+
         </section>
 
         <section id="contact">
