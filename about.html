@@ -1,62 +1,112 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About - Edinburgh Guesthouse</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Learn about Edinburgh Castle Guest House and explore our photo gallery." />
+    <title>Edinburgh Castle Guest House | About</title>
+    <link rel="stylesheet" href="root/styles.css" />
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header>
-        <h1>Edinburgh Guesthouse</h1>
-        <div class="nav-buttons">
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contact</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Edinburgh Castle Guest House Home">
+                <span class="brand-mark" aria-hidden="true">🏰</span>
+                <span class="brand-text">
+                    <span class="brand-title">Edinburgh Castle</span>
+                    <span class="brand-subtitle">Guest House</span>
+                </span>
+            </a>
+
+            <nav class="site-nav" aria-label="Primary navigation">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span aria-hidden="true">☰</span>
+                </button>
+
+                <ul id="nav-menu" class="nav-menu">
+                    <li><a class="nav-link" href="index.html">Home</a></li>
+                    <li><a class="nav-link" href="about.html" aria-current="page">About</a></li>
+                    <li><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-
-        <section>
-            <h2>About Our Guesthouse</h2>
-            <p>
-                Edinburgh Guesthouse is a comfortable and welcoming place to stay
-                near the heart of Edinburgh. Our goal is to provide guests with
-                a relaxing and affordable stay while exploring the city.
-            </p>
-
-            <p>
-                The property features spacious bedrooms, a modern kitchen,
-                free Wi-Fi, and a cosy living area. It is ideal for couples,
-                families, and small groups visiting for holidays or short breaks.
-            </p>
-
-            <p>
-                We are located close to public transport, shops, cafes,
-                and popular tourist attractions. Whether you're here for
-                sightseeing or business, our guesthouse offers a convenient base.
-            </p>
+    <main id="main">
+        <section class="page-hero" aria-labelledby="page-title">
+            <div class="container">
+                <h1 id="page-title">About</h1>
+                <p class="lead">
+                    A guest house inspired by Edinburgh’s stonework, stories, and skyline — designed for comfort, clarity, and easy booking.
+                </p>
+            </div>
         </section>
 
-        <section>
-            <h2>Why Choose Us?</h2>
-            <ul>
-                <li>Clean and modern rooms</li>
-                <li>Great location near city centre</li>
-                <li>Self check-in available</li>
-                <li>Friendly and responsive host</li>
-                <li>Affordable pricing</li>
-            </ul>
+        <section class="section" aria-labelledby="story-title">
+            <div class="container split">
+                <div>
+                    <h2 id="story-title">Our story</h2>
+                    <p>
+                        Edinburgh Castle Guest House is a themed stay that celebrates Scotland’s capital with subtle castle-inspired details:
+                        warm tones, tartan textures, and curated local photography.
+                    </p>
+                    <p>
+                        The layout prioritises usability: clear navigation, readable typography, consistent page structure, and accessible
+                        contact options. Every page follows semantic HTML5 structure to support assistive technology and clean validation.
+                    </p>
+
+                    <ul class="list-check" aria-label="Guest house highlights">
+                        <li>Castle-view rooms (subject to availability)</li>
+                        <li>Breakfast options with local ingredients</li>
+                        <li>Walkable routes to major city landmarks</li>
+                    </ul>
+
+                    <a class="btn btn-primary" href="contact.html">Contact the owner</a>
+                </div>
+
+            </div>
         </section>
 
+        <section class="section section-alt" aria-labelledby="gallery-title">
+            <div class="container">
+                <h2 id="gallery-title">Gallery</h2>
+
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="images/image01.jpg" alt="Exterior view of Edinburgh Castle Guest House near the Old Town" />
+                        <figcaption>Figure 1. Exterior of the guest house.</figcaption>
+                    </figure>
+
+                    <figure class="gallery-item">
+                        <img src="images/image02.jpg" alt="Castle-themed bedroom with tartan decor and warm lighting" />
+                        <figcaption>Figure 2. Castle-themed bedroom.</figcaption>
+                    </figure>
+
+                    <figure class="gallery-item">
+                        <img src="images/image03.jpg" alt="Scottish breakfast served in a bright dining room" />
+                        <figcaption>Figure 3. Breakfast area.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>� 2026 Edinburgh Guesthouse</p>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <p class="muted">
+                © 2026 Edinburgh Castle Guest House (Portfolio Prototype)
+            </p>
+
+            <ul class="footer-links" aria-label="Footer links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#main">Back to top</a></li>
+            </ul>
+        </div>
     </footer>
 
 </body>
