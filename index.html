@@ -1,23 +1,43 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
     <title>Edinburgh Guesthouse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background: #f5f5f5;
+            background: #f4f4f4;
         }
 
+        /* Header */
         header {
             background: #222;
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+            header h1 {
+                margin: 0;
+            }
+
+        .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 12px;
+            background: #0077cc;
+            border-radius: 5px;
+        }
+
+            .nav-buttons a:hover {
+                background: #005fa3;
+            }
 
         main {
             max-width: 900px;
@@ -38,24 +58,6 @@
             margin-top: 10px;
         }
 
-        h2 {
-            margin-top: 0;
-        }
-
-        ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 14px;
-            background: #0077cc;
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-        }
-
         footer {
             text-align: center;
             padding: 15px;
@@ -65,53 +67,43 @@
 </head>
 
 <body>
+
     <header>
         <h1>Edinburgh Guesthouse</h1>
-        <p>Cozy stay near the city centre</p>
+
+        <div class="nav-buttons">
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
     </header>
 
     <main>
-        <section>
+
+        <section id="about">
             <h2>About</h2>
             <p>
-                Welcome to our guesthouse in Edinburgh! It’s a comfortable place to relax after exploring the city.
-                Great for couples, friends, or small families.
+                Welcome to our Edinburgh Guesthouse! A cosy and comfortable place to stay near the city centre.
+                Perfect for couples, friends, and small families visiting Edinburgh.
             </p>
         </section>
 
         <section>
             <h2>Photos</h2>
-            <!-- Replace these image links with your own photos -->
-            <img src="https://via.placeholder.com/900x450?text=Living+Room" alt="Living room">
-            <img src="https://via.placeholder.com/900x450?text=Bedroom" alt="Bedroom">
-            <img src="https://via.placeholder.com/900x450?text=Kitchen" alt="Kitchen">
+            <img src="https://via.placeholder.com/900x400?text=Living+Room" alt="Living Room">
+            <img src="https://via.placeholder.com/900x400?text=Bedroom" alt="Bedroom">
         </section>
 
-        <section>
-            <h2>Amenities</h2>
-            <ul>
-                <li>Free Wi-Fi</li>
-                <li>Smart TV</li>
-                <li>Kitchen</li>
-                <li>Fresh towels and bed sheets</li>
-                <li>Self check-in</li>
-            </ul>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: example@email.com</p>
+            <p>Phone: +44 1234 567890</p>
         </section>
 
-        <section>
-            <h2>Location</h2>
-            <p>Near Edinburgh city centre. Close to shops, cafés, and public transport.</p>
-        </section>
-
-        <section>
-            <h2>Contact / Booking</h2>
-            <p>Click below to book or send a message.</p>
-            <a class="btn" href="#">Book Now</a>
-        </section>
     </main>
 
     <footer>
         <p>© 2026 Edinburgh Guesthouse</p>
     </footer>
+
 </body>
 </html>
