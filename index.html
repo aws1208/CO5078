@@ -1,276 +1,973 @@
 ﻿<!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="ShireStay Guest House — a Lord of the Rings inspired countryside retreat in Matamata, New Zealand. Comfortable rooms, themed experiences, and easy booking enquiries." />
-    <title>ShireStay Guest House | Home</title>
+    <meta name="description" content="A cosy Edinburgh guesthouse — walkable to the city centre, beautifully designed, and ideal for weekend breaks and longer stays." />
+    <title>Edinburgh Guesthouse | Stay in the Heart of the City</title>
 
-    <!-- External CSS only (per brief). Place styles.css in /root/ -->
-    <link rel="stylesheet" href="root/styles.css" />
+    <style>
+        :root {
+            --bg: #0b1220;
+            --card: rgba(255,255,255,.08);
+            --card2: rgba(255,255,255,.06);
+            --text: rgba(255,255,255,.92);
+            --muted: rgba(255,255,255,.72);
+            --line: rgba(255,255,255,.14);
+            --accent: #9ae6ff;
+            --accent2: #b6ffb3;
+            --shadow: 0 18px 60px rgba(0,0,0,.35);
+            --radius: 18px;
+            --radius2: 24px;
+            --max: 1120px;
+        }
 
-    <!-- Favicon optional (add later if you want) -->
-    <!-- <link rel="icon" href="root/assets/favicon.ico" /> -->
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+            color: var(--text);
+            background: radial-gradient(1200px 600px at 10% -10%, rgba(154,230,255,.20), transparent 60%), radial-gradient(900px 500px at 95% 10%, rgba(182,255,179,.14), transparent 60%), radial-gradient(900px 700px at 50% 120%, rgba(255,255,255,.08), transparent 55%), linear-gradient(180deg, #070b14 0%, #0b1220 100%);
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Top nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            background: rgba(7,11,20,.55);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 14px 24px;
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 720;
+            letter-spacing: .2px;
+        }
+
+        .mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            background: radial-gradient(circle at 30% 30%, rgba(154,230,255,.95), rgba(154,230,255,.15) 55%, transparent 65%), radial-gradient(circle at 70% 70%, rgba(182,255,179,.85), rgba(182,255,179,.12) 55%, transparent 65%), rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.18);
+            box-shadow: 0 10px 26px rgba(0,0,0,.28);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            padding: 0;
+            margin: 0;
+            color: var(--muted);
+            font-weight: 550;
+            font-size: 14px;
+        }
+
+        nav a {
+            padding: 8px 10px;
+            border-radius: 10px;
+        }
+
+            nav a:hover {
+                background: rgba(255,255,255,.06);
+                color: var(--text);
+            }
+
+        .cta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.06);
+            color: var(--text);
+            font-weight: 650;
+            cursor: pointer;
+            transition: transform .12s ease, background .12s ease, border-color .12s ease;
+            user-select: none;
+        }
+
+            .btn:hover {
+                background: rgba(255,255,255,.09);
+                border-color: rgba(255,255,255,.22);
+                transform: translateY(-1px);
+            }
+
+            .btn.primary {
+                border-color: rgba(154,230,255,.45);
+                background: linear-gradient(180deg, rgba(154,230,255,.16), rgba(154,230,255,.08));
+            }
+
+                .btn.primary:hover {
+                    border-color: rgba(154,230,255,.65);
+                    background: linear-gradient(180deg, rgba(154,230,255,.22), rgba(154,230,255,.10));
+                }
+
+        /* Hero */
+        .hero {
+            padding: 34px 0 18px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr .75fr;
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .hero-card {
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+            border-radius: var(--radius2);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+            min-height: 420px;
+        }
+
+            .hero-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(1200px 500px at 20% 20%, rgba(154,230,255,.18), transparent 60%), radial-gradient(900px 420px at 80% 70%, rgba(182,255,179,.14), transparent 65%);
+                pointer-events: none;
+            }
+
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.55)), url("images/edinburgh-guesthouse-hero.jpg") center/cover no-repeat;
+            filter: saturate(1.05) contrast(1.02);
+        }
+
+        .hero-content {
+            position: relative;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 680px;
+        }
+
+        .badge {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,.18);
+            background: rgba(7,11,20,.35);
+            width: fit-content;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(28px, 3.5vw, 44px);
+            line-height: 1.08;
+            letter-spacing: -.5px;
+        }
+
+        .sub {
+            margin: 0;
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 58ch;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            color: rgba(255,255,255,.82);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.14);
+        }
+
+        /* Booking card */
+        .book {
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.05));
+            border-radius: var(--radius2);
+            box-shadow: var(--shadow);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 420px;
+        }
+
+        .price {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,.12);
+        }
+
+            .price strong {
+                font-size: 22px;
+                letter-spacing: -.2px;
+            }
+
+            .price span {
+                color: var(--muted);
+                font-weight: 600;
+                font-size: 13px;
+            }
+
+        .form {
+            display: grid;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 6px;
+            font-weight: 650;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(7,11,20,.30);
+            color: var(--text);
+            outline: none;
+        }
+
+            input:focus, select:focus {
+                border-color: rgba(154,230,255,.55);
+                box-shadow: 0 0 0 4px rgba(154,230,255,.12);
+            }
+
+        .fineprint {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 6px 0 0;
+        }
+
+        .result {
+            border-radius: 16px;
+            border: 1px dashed rgba(255,255,255,.20);
+            padding: 12px;
+            background: rgba(255,255,255,.04);
+            color: rgba(255,255,255,.86);
+            font-size: 13px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Sections */
+        section {
+            padding: 26px 0;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: -.2px;
+        }
+
+        .hint {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 12px;
+        }
+
+        .card {
+            grid-column: span 4;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.05));
+            padding: 16px;
+        }
+
+            .card p {
+                margin: 8px 0 0;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+        .kicker {
+            color: rgba(255,255,255,.86);
+            font-weight: 740;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, var(--accent), rgba(154,230,255,.2));
+            box-shadow: 0 0 0 4px rgba(154,230,255,.10);
+            flex: 0 0 auto;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 12px;
+        }
+
+        .shot {
+            border-radius: var(--radius2);
+            border: 1px solid rgba(255,255,255,.14);
+            overflow: hidden;
+            min-height: 190px;
+            position: relative;
+            background: rgba(255,255,255,.06);
+        }
+
+            .shot img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                filter: saturate(1.05) contrast(1.02);
+            }
+
+            .shot span {
+                position: absolute;
+                left: 12px;
+                bottom: 12px;
+                background: rgba(7,11,20,.55);
+                border: 1px solid rgba(255,255,255,.14);
+                padding: 6px 10px;
+                border-radius: 999px;
+                font-size: 12px;
+                color: rgba(255,255,255,.88);
+                backdrop-filter: blur(10px);
+            }
+
+            .shot.big {
+                grid-column: span 7;
+                min-height: 320px;
+            }
+
+            .shot.mid {
+                grid-column: span 5;
+                min-height: 320px;
+            }
+
+            .shot.small {
+                grid-column: span 4;
+            }
+
+        /* Split */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .panel {
+            border: 1px solid var(--line);
+            border-radius: var(--radius2);
+            background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.05));
+            padding: 18px;
+        }
+
+        .list {
+            display: grid;
+            gap: 10px;
+            margin: 10px 0 0;
+            padding: 0;
+            list-style: none;
+            color: rgba(255,255,255,.86);
+        }
+
+            .list li {
+                display: flex;
+                gap: 10px;
+                align-items: flex-start;
+                padding: 10px 12px;
+                border-radius: 16px;
+                background: rgba(255,255,255,.05);
+                border: 1px solid rgba(255,255,255,.12);
+            }
+
+        .tick {
+            width: 22px;
+            height: 22px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(182,255,179,.12);
+            border: 1px solid rgba(182,255,179,.22);
+            color: rgba(182,255,179,.95);
+            flex: 0 0 auto;
+            font-weight: 900;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* Map */
+        .map {
+            width: 100%;
+            height: 360px;
+            border: 1px solid rgba(255,255,255,.14);
+            border-radius: var(--radius2);
+            overflow: hidden;
+            background: rgba(255,255,255,.06);
+        }
+
+            .map iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 18px 0 30px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .foot {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+            .foot small {
+                color: rgba(255,255,255,.60);
+            }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card, .book {
+                min-height: auto;
+            }
+
+            .cards .card {
+                grid-column: span 6;
+            }
+
+            .shot.big, .shot.mid {
+                grid-column: span 12;
+            }
+
+            .shot.small {
+                grid-column: span 6;
+            }
+
+            .split {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            nav ul {
+                display: none;
+            }
+
+            .cards .card {
+                grid-column: span 12;
+            }
+
+            .shot.small {
+                grid-column: span 12;
+            }
+
+            .grid2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+    <header>
+        <div class="nav">
+            <div class="brand">
+                <div class="mark" aria-hidden="true"></div>
+                <div>
+                    Edinburgh Guesthouse<br />
+                    <span style="color: rgba(255,255,255,.62); font-size: 12px; font-weight: 650;">Boutique stay · Walkable · Quiet nights</span>
+                </div>
+            </div>
 
-    <header class="site-header" role="banner">
-        <div class="container header-inner">
-            <a class="brand" href="index.html" aria-label="ShireStay Guest House Home">
-                <span class="brand-mark" aria-hidden="true">🍃</span>
-                <span class="brand-text">
-                    <span class="brand-name">ShireStay</span>
-                    <span class="brand-tagline">Guest House • Matamata, New Zealand</span>
-                </span>
-            </a>
-
-            <nav class="site-nav" aria-label="Primary navigation">
-                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
-                    <span class="nav-toggle-label">Menu</span>
-                </button>
-
-                <ul id="primary-menu" class="nav-list">
-                    <li class="nav-item"><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About &amp; Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <nav aria-label="Primary navigation">
+                <ul>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#area">Area</a></li>
+                    <li><a href="#map">Map</a></li>
                 </ul>
             </nav>
+
+            <div class="cta">
+                <a class="btn" href="#contact" title="Jump to contact">Contact</a>
+                <a class="btn primary" href="#book" title="Jump to booking">Check dates</a>
+            </div>
         </div>
     </header>
 
-    <main id="main" class="site-main" role="main">
+    <main class="wrap">
         <!-- HERO -->
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <h1 id="hero-title">A cosy, Middle-earth inspired stay — without the long journey.</h1>
-                    <p class="hero-lede">
-                        Welcome to <strong>ShireStay</strong>, a peaceful guest house near Matamata where warm hospitality meets a playful fantasy theme.
-                        Enjoy rustic interiors, modern comfort, and easy access to local walks and film-set landscapes.
-                    </p>
+        <section class="hero" id="top">
+            <div class="hero-grid">
+                <div class="hero-card">
+                    <div class="hero-media" aria-hidden="true"></div>
+                    <div class="hero-content">
+                        <div class="badge" role="note" aria-label="Highlights">
+                            <span aria-hidden="true">★</span> Super-comfy beds · Fast Wi-Fi · Self check-in
+                        </div>
+                        <h1>Stay cosy in Edinburgh — a calm base near the city’s best bits.</h1>
+                        <p class="sub">
+                            A bright, boutique guesthouse-style stay with thoughtful touches: quality linens,
+                            a proper coffee setup, and space to unwind after exploring.
+                        </p>
 
-                    <div class="hero-actions">
-                        <a class="button button-primary" href="contact.html">Enquire &amp; Check Availability</a>
-                        <a class="button button-secondary" href="about.html">Explore Rooms &amp; Gallery</a>
+                        <div class="hero-meta">
+                            <span class="chip">Sleeps 2–6</span>
+                            <span class="chip">2 bedrooms + sofa bed</span>
+                            <span class="chip">Kitchenette</span>
+                            <span class="chip">Smart TV</span>
+                            <span class="chip">Family-friendly</span>
+                        </div>
+
+                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px;">
+                            <a class="btn primary" href="#book">Check availability</a>
+                            <a class="btn" href="#gallery">See photos</a>
+                        </div>
+
+                        <p class="fineprint">
+                            Tip: replace the hero image at <code>images/edinburgh-guesthouse-hero.jpg</code> with your own.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BOOKING -->
+                <aside class="book" id="book" aria-label="Booking widget">
+                    <div class="price">
+                        <div>
+                            <strong>From £129</strong> <span>/ night</span><br />
+                            <span>Free cancellation · No hidden fees</span>
+                        </div>
+                        <div style="text-align:right">
+                            <div style="font-weight:800; font-size:14px;">4.9</div>
+                            <span>Guest favourite</span>
+                        </div>
                     </div>
 
-                    <ul class="hero-highlights" aria-label="Key highlights">
-                        <li class="highlight">
-                            <span class="highlight-title">Accessible-first design</span>
-                            <span class="highlight-desc">Clear contrast, structured content, keyboard-friendly navigation.</span>
-                        </li>
-                        <li class="highlight">
-                            <span class="highlight-title">Great location</span>
-                            <span class="highlight-desc">Near Matamata with scenic countryside walks and local cafes.</span>
-                        </li>
-                        <li class="highlight">
-                            <span class="highlight-title">Comfortable rooms</span>
-                            <span class="highlight-desc">Fresh linens, fast Wi-Fi, and calm spaces for rest.</span>
-                        </li>
+                    <form class="form" id="bookingForm">
+                        <div class="grid2">
+                            <div>
+                                <label for="checkin">Check-in</label>
+                                <input id="checkin" name="checkin" type="date" required />
+                            </div>
+                            <div>
+                                <label for="checkout">Check-out</label>
+                                <input id="checkout" name="checkout" type="date" required />
+                            </div>
+                        </div>
+
+                        <div class="grid2">
+                            <div>
+                                <label for="guests">Guests</label>
+                                <select id="guests" name="guests">
+                                    <option value="1">1 guest</option>
+                                    <option value="2" selected>2 guests</option>
+                                    <option value="3">3 guests</option>
+                                    <option value="4">4 guests</option>
+                                    <option value="5">5 guests</option>
+                                    <option value="6">6 guests</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="pets">Pets</label>
+                                <select id="pets" name="pets">
+                                    <option value="no" selected>No pets</option>
+                                    <option value="yes">Pet friendly</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="btn primary" type="submit">Check availability</button>
+                        <div class="result" id="result" aria-live="polite">
+                            Select dates to get an estimated total.
+                        </div>
+
+                        <p class="fineprint">
+                            This is a front-end demo (no real booking). Wire it to your platform or contact form.
+                        </p>
+                    </form>
+                </aside>
+            </div>
+        </section>
+
+        <!-- AMENITIES -->
+        <section id="amenities">
+            <div class="section-title">
+                <h2>Amenities that actually matter</h2>
+                <div class="hint">Built for short breaks + longer stays</div>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Sleep well</div>
+                    <p>Blackout blinds, hotel-grade linens, and quiet-night setup for deep rest.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Work & stream</div>
+                    <p>Fast Wi-Fi, a proper desk nook, and Smart TV with HDMI for your laptop.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Easy arrival</div>
+                    <p>Self check-in, clear instructions, and flexible late arrival options.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Kitchen essentials</div>
+                    <p>Induction hob, microwave, fridge, cookware, tea/coffee, and basics.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Family friendly</div>
+                    <p>Cot/high chair on request, games, and a layout that works for groups.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Local tips</div>
+                    <p>Neighbourhood guide, food recommendations, and walk suggestions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROOMS -->
+        <section id="rooms">
+            <div class="section-title">
+                <h2>Rooms & layout</h2>
+                <div class="hint">Make it yours — rename these however you like</div>
+            </div>
+
+            <div class="split">
+                <div class="panel">
+                    <h3 style="margin:0; font-size: 16px;">The Space</h3>
+                    <ul class="list" aria-label="Layout list">
+                        <li><span class="tick">✓</span><div><strong>Bedroom 1</strong><div class="muted">Double bed · Wardrobe · Blackout blinds</div></div></li>
+                        <li><span class="tick">✓</span><div><strong>Bedroom 2</strong><div class="muted">Twin beds (or zip-link) · Reading chair</div></div></li>
+                        <li><span class="tick">✓</span><div><strong>Living area</strong><div class="muted">Sofa bed · Smart TV · Dining table</div></div></li>
+                        <li><span class="tick">✓</span><div><strong>Bathroom</strong><div class="muted">Rain shower · Fresh towels · Toiletries</div></div></li>
                     </ul>
                 </div>
 
-                <div class="hero-media" aria-label="Featured image">
-                    <figure class="media-frame">
-                        <!-- Replace with your own/CC/AI-generated image placed in root/assets/ -->
-                        <img src="root/assets/hero-shirestay.jpg"
-                             width="1200"
-                             height="800"
-                             alt="A cosy, cottage-style guest house exterior with warm lighting, greenery, and a welcoming path."
-                             loading="eager"
-                             decoding="async" />
-                        <figcaption class="media-caption">
-                            Figure 1. Hero image for ShireStay Guest House. (Add APA 7 reference in your development log.)
-                        </figcaption>
-                    </figure>
+                <div class="panel">
+                    <h3 style="margin:0; font-size: 16px;">House Rules</h3>
+                    <ul class="list" aria-label="House rules list">
+                        <li><span class="tick">✓</span><div><strong>No parties</strong><div class="muted">Respect neighbours and quiet hours.</div></div></li>
+                        <li><span class="tick">✓</span><div><strong>No smoking</strong><div class="muted">Smoke-free property (including vaping).</div></div></li>
+                        <li><span class="tick">✓</span><div><strong>Check-in/out</strong><div class="muted">Check-in 3pm · Check-out 11am (adjustable if available).</div></div></li>
+                        <li><span class="tick">✓</span><div><strong>ID & booking</strong><div class="muted">Lead guest must be 18+ and match booking details.</div></div></li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- TRUST / SUMMARY STRIP -->
-        <section class="trust-strip" aria-label="Guest essentials">
-            <div class="container trust-items">
-                <div class="trust-item">
-                    <h2 class="trust-title">Check-in</h2>
-                    <p class="trust-text">From 3:00 pm • Self check-in available</p>
+        <!-- GALLERY -->
+        <section id="gallery">
+            <div class="section-title">
+                <h2>Photo gallery</h2>
+                <div class="hint">Replace these with your real photos</div>
+            </div>
+
+            <div class="gallery" aria-label="Guesthouse photo gallery">
+                <div class="shot big">
+                    <img src="images/gallery-lounge.jpg" alt="Lounge area with sofa and smart TV" />
+                    <span>Lounge</span>
                 </div>
-                <div class="trust-item">
-                    <h2 class="trust-title">Check-out</h2>
-                    <p class="trust-text">By 11:00 am • Late check-out by request</p>
+                <div class="shot mid">
+                    <img src="images/gallery-bedroom.jpg" alt="Bedroom with double bed and soft lighting" />
+                    <span>Bedroom</span>
                 </div>
-                <div class="trust-item">
-                    <h2 class="trust-title">Quiet hours</h2>
-                    <p class="trust-text">10:00 pm – 7:00 am • Great for light sleepers</p>
+                <div class="shot small">
+                    <img src="images/gallery-kitchen.jpg" alt="Kitchenette with coffee setup" />
+                    <span>Kitchenette</span>
                 </div>
-                <div class="trust-item">
-                    <h2 class="trust-title">Amenities</h2>
-                    <p class="trust-text">Wi-Fi • Breakfast • Parking • Local guides</p>
+                <div class="shot small">
+                    <img src="images/gallery-bathroom.jpg" alt="Bathroom with rain shower" />
+                    <span>Bathroom</span>
+                </div>
+                <div class="shot small">
+                    <img src="images/gallery-details.jpg" alt="Detail shot of tea and coffee amenities" />
+                    <span>Details</span>
+                </div>
+            </div>
+
+            <p class="fineprint">
+                Suggested images folder: <code>/images</code>. Keep filenames the same or update the <code>src</code> attributes.
+            </p>
+        </section>
+
+        <!-- AREA -->
+        <section id="area">
+            <div class="section-title">
+                <h2>Explore nearby</h2>
+                <div class="hint">Easy walks, views, food</div>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Old Town & Royal Mile</div>
+                    <p>Historic streets, closes, and classic Edinburgh atmosphere — perfect for your first day.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Arthur’s Seat</div>
+                    <p>A rewarding hike for panoramic views (weather permitting). Bring a layer.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Calton Hill</div>
+                    <p>Short climb, iconic viewpoints, especially at golden hour.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Stockbridge</div>
+                    <p>Village vibes, cafés, and scenic paths along the Water of Leith walkway.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Leith</div>
+                    <p>Waterside energy, food spots, and a different side of the city.</p>
+                </div>
+                <div class="card">
+                    <div class="kicker"><span class="dot"></span>Rainy-day plans</div>
+                    <p>Museums, whisky experiences, cosy pubs, and hidden indoor gems.</p>
                 </div>
             </div>
         </section>
 
-        <!-- FEATURES -->
-        <section class="section" aria-labelledby="features-title">
-            <div class="container">
-                <h2 id="features-title">What you’ll love</h2>
-                <p class="section-intro">
-                    Designed with usability in mind: scannable sections, consistent navigation, and clear calls to action.
+        <!-- MAP -->
+        <section id="map">
+            <div class="section-title">
+                <h2>Location</h2>
+                <div class="hint">Set this to your exact area (or keep it approximate)</div>
+            </div>
+
+            <div class="panel">
+                <p style="margin:0; color: var(--muted);">
+                    Privacy tip: many hosts show an approximate pin until booking is confirmed.
                 </p>
+                <div style="height: 12px;"></div>
 
-                <div class="cards" role="list">
-                    <article class="card" role="listitem">
-                        <h3>Comfort-first rooms</h3>
-                        <p>
-                            Supportive mattresses, blackout curtains, and a calm, uncluttered layout so you can rest properly.
-                        </p>
-                    </article>
-
-                    <article class="card" role="listitem">
-                        <h3>Theme done tastefully</h3>
-                        <p>
-                            Subtle decor details and storytelling touches — fun, not overwhelming.
-                        </p>
-                    </article>
-
-                    <article class="card" role="listitem">
-                        <h3>Simple enquiry flow</h3>
-                        <p>
-                            A structured contact form with clear labels and helpful feedback (implemented on the Contact page).
-                        </p>
-                    </article>
-
-                    <article class="card" role="listitem">
-                        <h3>Local recommendations</h3>
-                        <p>
-                            Walking routes, nearby food spots, and day trips — curated for different budgets and energy levels.
-                        </p>
-                    </article>
+                <div class="map" aria-label="Map showing approximate guesthouse location">
+                    <!-- Approximate central Edinburgh view via OpenStreetMap embed -->
+                    <iframe title="OpenStreetMap embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-3.2202%2C55.9400%2C-3.1702%2C55.9600&amp;layer=mapnik">
+                    </iframe>
                 </div>
-            </div>
-        </section>
 
-        <!-- QUICK GALLERY PREVIEW -->
-        <section class="section section-alt" aria-labelledby="preview-title">
-            <div class="container">
+                <div style="height: 12px;"></div>
+
                 <div class="split">
-                    <div class="split-content">
-                        <h2 id="preview-title">A peek inside</h2>
-                        <p class="section-intro">
-                            Browse the full gallery on the About page. All images should be attributed (CC/your own/AI) using APA 7 in your log.
+                    <div class="panel" style="padding:14px;">
+                        <h3 style="margin:0; font-size: 15px;">Getting around</h3>
+                        <p class="muted" style="margin:8px 0 0;">
+                            Edinburgh is compact — walking plus buses/taxis cover most trips quickly.
                         </p>
-                        <a class="button button-secondary" href="about.html">View the Gallery</a>
                     </div>
-
-                    <div class="split-media" aria-label="Gallery preview">
-                        <ul class="image-grid">
-                            <li>
-                                <figure>
-                                    <img src="root/assets/preview-room.jpg"
-                                         width="800"
-                                         height="600"
-                                         alt="A warm guest room with wooden furniture, soft lighting, and a neatly made bed."
-                                         loading="lazy"
-                                         decoding="async" />
-                                    <figcaption>Figure 2. Guest room preview. (Add APA 7 reference in log.)</figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure>
-                                    <img src="root/assets/preview-breakfast.jpg"
-                                         width="800"
-                                         height="600"
-                                         alt="A simple breakfast tray with tea, fruit, and pastries on a wooden table."
-                                         loading="lazy"
-                                         decoding="async" />
-                                    <figcaption>Figure 3. Breakfast preview. (Add APA 7 reference in log.)</figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure>
-                                    <img src="root/assets/preview-garden.jpg"
-                                         width="800"
-                                         height="600"
-                                         alt="A green garden path with shrubs and a small sitting area."
-                                         loading="lazy"
-                                         decoding="async" />
-                                    <figcaption>Figure 4. Garden preview. (Add APA 7 reference in log.)</figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure>
-                                    <img src="root/assets/preview-map.jpg"
-                                         width="800"
-                                         height="600"
-                                         alt="A map-style illustration showing the guest house area and nearby points of interest."
-                                         loading="lazy"
-                                         decoding="async" />
-                                    <figcaption>Figure 5. Location/guide preview. (Add APA 7 reference in log.)</figcaption>
-                                </figure>
-                            </li>
-                        </ul>
+                    <div class="panel" style="padding:14px;">
+                        <h3 style="margin:0; font-size: 15px;">Parking</h3>
+                        <p class="muted" style="margin:8px 0 0;">
+                            Add your parking info here (permits, paid bays, nearby car parks).
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="cta" aria-labelledby="cta-title">
-            <div class="container cta-inner">
-                <h2 id="cta-title">Ready to plan your stay?</h2>
-                <p>
-                    Send an enquiry and we’ll reply with availability, pricing, and local travel tips.
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="section-title">
+                <h2>Contact & booking</h2>
+                <div class="hint">Add your real links</div>
+            </div>
+
+            <div class="panel">
+                <p style="margin-top:0; color: var(--muted);">
+                    Replace these with your Airbnb/booking link, phone, or email.
                 </p>
-                <a class="button button-primary" href="contact.html">Contact the Owner</a>
+
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <a class="btn primary" href="#" onclick="alert('Add your booking link here.'); return false;">Book now</a>
+                    <a class="btn" href="#" onclick="alert('Add your contact method here.'); return false;">Message host</a>
+                    <a class="btn" href="#top">Back to top</a>
+                </div>
+
+                <p class="fineprint" style="margin-top:12px;">
+                    <strong>Host note:</strong> Keep your listing name and imagery consistent across platforms for better trust & conversions.
+                </p>
             </div>
         </section>
+
+        <footer>
+            <div class="foot">
+                <div>
+                    <strong style="color: rgba(255,255,255,.84);">Edinburgh Guesthouse</strong>
+                    <div><small>© <span id="year"></span> · All rights reserved</small></div>
+                </div>
+                <div><small>Made with HTML/CSS · No frameworks</small></div>
+            </div>
+        </footer>
     </main>
 
-    <footer class="site-footer" role="contentinfo">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <p class="footer-name">ShireStay Guest House</p>
-                <p class="footer-small">
-                    Matamata, Waikato • New Zealand
-                </p>
-            </div>
-
-            <nav class="footer-nav" aria-label="Footer navigation">
-                <ul class="footer-links">
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="about.html">About &amp; Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <div class="footer-meta">
-                <p class="footer-small">
-                    © <span id="year">2026</span> ShireStay. For educational use only.
-                </p>
-                <p class="footer-small">
-                    Built to HTML5 + CSS3 standards; accessibility tested with WAVE (document results in your development log).
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JS enhancement (no inline styling). Put JS in root/scripts.js later if you prefer. -->
     <script>
-    (function () {
-      var yearEl = document.getElementById('year');
-      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+        // Basic availability estimate (front-end only)
+        const form = document.getElementById("bookingForm");
+        const result = document.getElementById("result");
+        const year = document.getElementById("year");
+        year.textContent = new Date().getFullYear();
 
-      var toggle = document.querySelector('.nav-toggle');
-      var menu = document.getElementById('primary-menu');
-      if (!toggle || !menu) return;
+        const nightlyRate = 129; // Adjust to your base rate
+        const cleaningFee = 35;  // Adjust as needed
 
-      toggle.addEventListener('click', function () {
-        var expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('is-open');
-      });
-    })();
+        function daysBetween(a, b) {
+            const ms = b - a;
+            return Math.ceil(ms / (1000 * 60 * 60 * 24));
+        }
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const checkinVal = document.getElementById("checkin").value;
+            const checkoutVal = document.getElementById("checkout").value;
+            const guests = parseInt(document.getElementById("guests").value, 10);
+            const pets = document.getElementById("pets").value;
+
+            if (!checkinVal || !checkoutVal) {
+                result.textContent = "Please select both check-in and check-out dates.";
+                return;
+            }
+
+            const checkin = new Date(checkinVal + "T00:00:00");
+            const checkout = new Date(checkoutVal + "T00:00:00");
+
+            const nights = daysBetween(checkin, checkout);
+
+            if (!Number.isFinite(nights) || nights <= 0) {
+                result.textContent = "Check-out must be after check-in.";
+                return;
+            }
+
+            // Simple pricing rules (customise freely)
+            const guestSurcharge = Math.max(0, guests - 2) * 12; // £12/night for extra guests beyond 2
+            const petFee = (pets === "yes") ? 18 : 0;           // one-time pet fee
+
+            const subtotal = nights * (nightlyRate + guestSurcharge);
+            const total = subtotal + cleaningFee + petFee;
+
+            const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
+
+            result.innerHTML = `
+            <div>
+              <strong>${nights} night${nights > 1 ? "s" : ""}</strong> · ${guests} guest${guests > 1 ? "s" : ""}
+              <div style="color: rgba(255,255,255,.72); margin-top:4px;">
+                ${gbp.format(nightlyRate)} × ${nights} nights
+                ${guestSurcharge ? ` + guest surcharge` : ``}
+                <br/>
+                Cleaning fee: ${gbp.format(cleaningFee)}
+                ${petFee ? `<br/>Pet fee: ${gbp.format(petFee)}` : ``}
+              </div>
+              <div style="margin-top:8px; font-weight:800;">
+                Estimated total: ${gbp.format(total)}
+              </div>
+            </div>
+          `;
+        });
     </script>
 </body>
 </html>
